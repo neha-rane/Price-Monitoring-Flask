@@ -4,7 +4,7 @@ Steps to run the server:
 2. virtualenv venv
 3. To activate corresponding environment
    On Windows use following - venv\scripts\activate
-   On Linux / OS x - venv/bin/activate
+   On Linux/OS X - venv/bin/activate
 4. run app.py file from project folder
 
 
