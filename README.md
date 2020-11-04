@@ -12,5 +12,5 @@ Required Libraries
 
 1. Flask (pip install Flask)
 2. Selenium (pip install Selenium)
-   Download Selenium Chrome Driver from https://chromedriver.chromium.org/downloads
-3. Flask-Cors (pip install Flask-Cors)
+3. Download Selenium Chrome Driver from https://chromedriver.chromium.org/downloads
+4. Flask-Cors (pip install Flask-Cors)
