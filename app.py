@@ -10,7 +10,6 @@ CORS(app)
 listt = []
 main_json = {}
 def scrapping(keyword):
-    
 
 
     chrome_options = webdriver.ChromeOptions()
@@ -105,7 +104,7 @@ def scrapping(keyword):
         details["Discount"] = discount[i].text
         details["ImageSrc"] = image[i].get_attribute("src")
         details["NavLink"] = link[i].get_attribute("href")
-        print(details)
+        #print(details)
         listt.append(details)
 
 
@@ -144,6 +143,7 @@ def scrapping(keyword):
 
 @app.route('/search',methods = ['post'])
 def hello():
+    
     keyw = request.json['keyword']
     try: 
         scrapping(keyw)
@@ -155,6 +155,7 @@ def hello():
         all_text = json.dumps(main_json)
         print(all_text)
         print(len(main_json))
+        listt.clear()
     
     return all_text
 
