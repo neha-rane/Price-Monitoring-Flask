@@ -96,14 +96,14 @@ def scrapping(keyword):
     price = wd.find_elements_by_class_name("_1vC4OE")
     link = wd.find_elements_by_css_selector('div._1UoZlX a')
     discount = wd.find_elements_by_class_name("VGWI6T")
-    #image = wd.find_elements_by_class_name("_1Nyybr")
+    image = wd.find_elements_by_class_name("_1Nyybr")
 
     for i in range(len(name)):
         details = {}
         details["Name"] = name[i].text
         details["Price"] = price[i].text
         details["Discount"] = discount[i].text
-        #details["ImageSrc"] = image[i].get_attribute("src")
+        details["ImageSrc"] = image[i].get_attribute("src")
         details["NavLink"] = link[i].get_attribute("href")
         print(details)
         listt.append(details)
