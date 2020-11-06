@@ -8,9 +8,8 @@ Steps to run the server:
 4. run app.py file from project folder
 
 
-Required Libraries
+Install Requirements
 
-1. Flask (pip install Flask)
-2. Selenium (pip install Selenium)
-3. Download Selenium Chrome Driver from https://chromedriver.chromium.org/downloads
-4. Flask-Cors (pip install Flask-Cors)
+```
+pip install -r requirements.txt
+```

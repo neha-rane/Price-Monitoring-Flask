@@ -16,7 +16,8 @@ def scrapping(keyword):
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
-    wd = webdriver.Chrome('.\chromedriver.exe',options=chrome_options)
+    # wd = webdriver.Chrome('.\chromedriver.exe',options=chrome_options)
+    wd = webdriver.Chrome(options=chrome_options)
 
     wd.get('https://www.shopclues.com/search?q='+keyword)
     #Scrapping
