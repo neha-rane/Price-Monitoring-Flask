@@ -19,6 +19,8 @@ def scrapping(keyword):
     # wd = webdriver.Chrome('.\chromedriver.exe',options=chrome_options)
     wd = webdriver.Chrome(options=chrome_options)
 
+    ####SHOPCLUES
+
     wd.get('https://www.shopclues.com/search?q='+keyword)
     #Scrapping
     results = wd.find_elements_by_class_name("search_blocks")
@@ -46,16 +48,19 @@ def scrapping(keyword):
           discount.append(" ".join(x[1:]))
 
 
-    for i in range(len(name)):
+    for i in range(min(len(name),len(price),len(discount),len(link),len(image))):
       details = {}
       details["Name"] = name[i]
       details["Price"] = price[i]
       details["Discount"] = discount[i]
       details["ImageSrc"] = image[i].get_attribute("src")
       details["NavLink"] = link[i].get_attribute("href")
+      details["Website"] = "Shopclues"
       #print(details)
       listt.append(details)
 
+
+    #### CROMA
 
     wd.get('https://www.croma.com/search/?text='+keyword)
 
@@ -79,35 +84,39 @@ def scrapping(keyword):
       price.append(i)
 
     
-    for i in range(len(name)):
+    for i in range(min(len(name),len(price),len(discount),len(link),len(image))):
         details = {}
         details["Name"] = name[i].text
         details["Price"] = price[i].text
         details["Discount"] = discount[i].text
         details["ImageSrc"] = image[i].get_attribute("src")
         details["NavLink"] = link[i].get_attribute("href")
+        details["Website"] = "Croma"
         #print(details)
         listt.append(details)
  
+    ##### FLIPKART
 
     wd.get('https://www.flipkart.com/search?q='+keyword)
 
-    name = wd.find_elements_by_class_name("_3wU53n")
-    price = wd.find_elements_by_class_name("_1vC4OE")
-    link = wd.find_elements_by_css_selector('div._1UoZlX a')
-    discount = wd.find_elements_by_class_name("VGWI6T")
-    image = wd.find_elements_by_class_name("_1Nyybr")
+    name = wd.find_elements_by_class_name("_4rR01T")
+    price = wd.find_elements_by_class_name("_30jeq3")
+    link = wd.find_elements_by_css_selector('div._2kHMtA a')
+    discount = wd.find_elements_by_class_name("_3Ay6Sb")
+    image = wd.find_elements_by_class_name("CXW8mj")
 
-    for i in range(len(name)):
+    for i in range(min(len(name),len(price),len(discount),len(link),len(image))):
         details = {}
         details["Name"] = name[i].text
         details["Price"] = price[i].text
         details["Discount"] = discount[i].text
         details["ImageSrc"] = image[i].get_attribute("src")
         details["NavLink"] = link[i].get_attribute("href")
+        details["Website"] = "Flipkart"
         #print(details)
         listt.append(details)
 
+    #PAYTMMALL
 
     wd.get('https://paytmmall.com/shop/search?q='+keyword)
 
@@ -127,7 +136,7 @@ def scrapping(keyword):
       if "%" not in main[item][2]:
         discount.insert(item," ")
 
-    for i in range(len(name)):
+    for i in range(min(len(name),len(price),len(discount),len(link),len(image))):
         details = {}
         details["Name"] = name[i].text
         details["Price"] = price[i].text
@@ -137,6 +146,7 @@ def scrapping(keyword):
           details["Discount"] = discount[i].text
         details["ImageSrc"] = image[i].get_attribute("src")
         details["NavLink"] = link[i].get_attribute("href")
+        details["Website"] = "PaytmMall"
         #print(details)
         listt.append(details)
 
